@@ -28,4 +28,8 @@ impl List {
 
         self.head = Link::More(new_node);
     }
+
+    pub fn pop(&mut self) -> Option<i32> {
+        // TODO
+    }
 }
