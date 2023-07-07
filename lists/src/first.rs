@@ -40,6 +40,7 @@ impl List {
     }
 }
 
+#[cfg(test)]
 mod test {
     use crate::first::List;
 
