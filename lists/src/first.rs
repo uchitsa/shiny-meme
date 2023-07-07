@@ -1,3 +1,4 @@
+use std::alloc::dealloc;
 use std::mem;
 
 pub struct List {
@@ -57,6 +58,13 @@ impl Drop for Link {
                 drop(boxed_mode);
             }
         }
+    }
+}
+
+impl Drop for Box<Node> {
+    fn drop(&mut self) {
+        self.ptr.drop();
+        deallocate(self.ptr);
     }
 }
 
