@@ -49,5 +49,11 @@ mod test {
 
         assert_eq!(list.pop(), None);
 
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        assert_eq!(list.pop(), Some(3));
+        assert_eq!(list.pop(), Some(2));
     }
 }
