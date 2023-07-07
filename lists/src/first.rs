@@ -15,6 +15,10 @@ struct Node {
     next: Link,
 }
 
+pub trait Drop {
+    fn drop(&mut self);
+}
+
 impl List {
     pub fn new() -> Self {
         List { head: Link::Empty }
@@ -39,6 +43,13 @@ impl List {
         }
     }
 }
+
+impl Drop for List {
+    fn drop(&mut self) {
+        self.head.drop();
+    }
+}
+
 
 #[cfg(test)]
 mod test {
