@@ -41,8 +41,13 @@ impl List {
 }
 
 mod test {
+    use crate::first::List;
+
     #[test]
     fn basics() {
-        //TODO
+        let mut list = List::new();
+
+        assert_eq!(list.pop(), None);
+
     }
 }
