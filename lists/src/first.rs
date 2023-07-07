@@ -1,6 +1,5 @@
 use std::mem;
 
-
 pub struct List {
     head: Link,
 }
@@ -50,6 +49,16 @@ impl Drop for List {
     }
 }
 
+impl Drop for Link {
+    fn drop(&mut self) {
+        match *self {
+            Link::Empty => {}
+            Link::More(ref mut boxed_mode) => {
+                drop(boxed_mode);
+            }
+        }
+    }
+}
 
 #[cfg(test)]
 mod test {
