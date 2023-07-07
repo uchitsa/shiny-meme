@@ -68,6 +68,12 @@ impl Drop for Box<Node> {
     }
 }
 
+impl Drop for Node {
+    fn drop(&mut self) {
+        self.next.drop();
+    }
+}
+
 #[cfg(test)]
 mod test {
     use crate::first::List;
