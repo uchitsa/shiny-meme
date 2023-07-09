@@ -1,4 +1,3 @@
-use std::alloc::dealloc;
 use std::mem;
 
 pub struct List {
